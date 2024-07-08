@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "51966181188",
+    "firebase_url": "https://tienpepe-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "tienpepe",
+    "storage_bucket": "tienpepe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51966181188:android:5d177405aa4f66c217a111",
+        "android_client_info": {
+          "package_name": "com.example.b231"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa07JCj-rK-W_ruB1MOARM2ZRV0HJebeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
