@@ -1,5 +1,6 @@
 package com.example.b231
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -51,6 +52,20 @@ class FetchingActivity : AppCompatActivity() {
                     }
                     val mAdapter = EmpAdapter(ds)
                     binding.rvEmp.adapter = mAdapter
+
+                    mAdapter.setOnClickListener(object : EmpAdapter.OnItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(this@FetchingActivity, EmployeeDetailsActivity::class.java)
+                            intent.putExtra("empID", ds[position].empID)
+                            intent.putExtra(("empName"), ds[position].empName)
+                            intent.putExtra(("empAge"), ds[position].empAge)
+                            intent.putExtra(("empSalary"), ds[position].empSalary)
+
+                            startActivity(intent)
+                        }
+                    })
+
+
                     binding.rvEmp.visibility=View.VISIBLE
                     binding.txtLoadingData.visibility=View.GONE
                 }

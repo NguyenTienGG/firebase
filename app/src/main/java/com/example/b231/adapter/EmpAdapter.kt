@@ -11,14 +11,29 @@ import com.example.b231.R
 
 class EmpAdapter(private val ds: ArrayList<EmployeeModel>) :
     RecyclerView.Adapter<EmpAdapter.EmpViewHolder>() {
-    class EmpViewHolder(item: View) : RecyclerView.ViewHolder(item) {
+    private lateinit var mListener: OnItemClickListener
 
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnClickListener(clickListener: OnItemClickListener) {
+        mListener = clickListener
+    }
+
+
+    class EmpViewHolder(item: View,clickListener: OnItemClickListener) : RecyclerView.ViewHolder(item) {
+        init {
+            itemView.setOnClickListener {
+                clickListener.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmpViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.emp_list_item, parent, false)
-        return EmpViewHolder(itemView)
+        return EmpViewHolder(itemView, mListener)
     }
 
     override fun getItemCount(): Int {
